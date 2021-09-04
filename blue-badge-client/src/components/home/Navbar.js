@@ -16,10 +16,10 @@ const Sitebar = (props) => {
 	return (
 		<div>
 		<Navbar color="light" light expand="md">
-        <NavbarBrand className="nav-logo"><img src="/assets/BooleanBandits.png" width="200" height="100"/></NavbarBrand>
+        <NavbarBrand className="nav-logo"><img src="/assets/BooleanBandits.png" width="100" height="50"/></NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="top" navbar>
+          <Nav className="ms-auto" navbar>
             <NavItem>
               <NavLink href="/auth/">Home</NavLink>
             </NavItem>
