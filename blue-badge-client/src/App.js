@@ -1,7 +1,9 @@
+
 import React, {useState, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import Auth from './components/auth/Auth';
+import Sitebar from './components/home/Navbar'
 
 function App() {
   const [sessionToken, setSessionToken] = useState('');
@@ -27,6 +29,7 @@ function App() {
   return (
     <div className="App">
       <Auth updateToken={updateToken}/>
+ <Sitebar />
     </div>
   );
 }
