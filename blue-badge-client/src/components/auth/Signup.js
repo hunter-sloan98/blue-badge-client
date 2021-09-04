@@ -25,7 +25,7 @@ const Signup = (props) => {
 
   return(
     <div className='signupMain'>
-      <h3>Welcome to the Boolean Bandits, think you're ready to sign up.</h3>
+      <h3>Sign up</h3>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
           <Label htmlFor='email'>Email</Label>

@@ -3,11 +3,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import Auth from './components/auth/Auth';
 
-
-
-
-
-
 function App() {
   const [sessionToken, setSessionToken] = useState('');
 
