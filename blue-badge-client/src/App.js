@@ -14,7 +14,7 @@ function App() {
     }
   }, [])
 
-//Updating out token
+//Updating our token
   const updateToken = (newToken) => {
     localStorage.setItem('token', newToken)
     setSessionToken(newToken);
@@ -28,8 +28,8 @@ function App() {
   }
   return (
     <div className="App">
-      <Auth updateToken={updateToken}/>
- <Sitebar />
+      <Sitebar />
+      <Auth updateToken={updateToken} />
     </div>
   );
 }

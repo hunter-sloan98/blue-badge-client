@@ -29,7 +29,7 @@ const RevCreate = (props) => {
 
     return(
         <div>
-            <h3>Post Review</h3>
+            <h3>Review Game</h3>
             <Form onSubmit={handlePost}>
             <FormGroup>
                 <Label htmlFor="title">Title</Label>
