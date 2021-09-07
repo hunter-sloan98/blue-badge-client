@@ -6,8 +6,9 @@ import {Collapse,
   Nav,
   NavItem,
   NavLink,
-	Button
+	Button,
 } from 'reactstrap'
+import logo from '../../assets/BooleanBandits.png'
 
 const Sitebar = (props) => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +17,8 @@ const Sitebar = (props) => {
 	return (
 		<div>
 		<Navbar color="light" light expand="md">
-        <NavbarBrand className="nav-logo"><img src="/assets/BooleanBandits.png" width="200" height="100"/></NavbarBrand>
+        <NavbarBrand className="nav-logo"><img src={logo} width="200" height="100"/></NavbarBrand>
+        <h1 className="mainTitle">Boolean Bandits Reviews</h1>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="top" navbar>

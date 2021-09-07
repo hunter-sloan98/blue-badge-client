@@ -1,9 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import RevCreate from './RevCreate';
+import RevEdit from './RevEdit';
 
 const RevDisplay = (props) => {
 
     const [reviews, setReviews] = useState([])
+    const [revUpdateActive, setRevUpdateActive] = useState(false);
+    const [updateMyRev, setUpdateMyRev] = useState({}); 
 
     const fetchRev = () => {
         fetch('http://localhost:3500/rev', {
@@ -23,9 +26,26 @@ const RevDisplay = (props) => {
         fetchRev()
     }, [])
 
+    const editUpdateRev = (rev) => {
+        setUpdateMyRev(rev)
+    }
+
+    const updateOn = () => {
+        setRevUpdateActive(true)
+    }
+
+    const updateOff = () => {
+        setRevUpdateActive(false)
+    }
+
     return(
         <div>
             <RevCreate fetchRev={fetchRev} token={props.token}/>
+
+            {/* Need to link to MY REVIEWS/ALL REVIEWS PAGE?? -- Still need to call editUpdateRev() and updateOn() */}
+
+            {revUpdateActive ? <RevEdit updateMyRev={updateMyRev} updateOff={updateOff}  token={props.token} fetchRev={fetchRev} />
+            : <></>}
         </div>
     )
 };

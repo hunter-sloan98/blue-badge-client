@@ -1,9 +1,9 @@
-
 import React, {useState, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
-import Auth from './components/auth/Auth';
 import Sitebar from './components/home/Navbar'
+import RevDisplay from './components/review/RevDisplay'
+import Auth from './components/auth/Auth'
 
 function App() {
   const [sessionToken, setSessionToken] = useState('');
@@ -26,10 +26,14 @@ function App() {
     localStorage.clear();
     setSessionToken('');
   }
+
+  const protectedViews = () => {
+    return(sessionToken === localStorage.getItem('token') ? <RevDisplay token={sessionToken}/> : <Auth updateToken={updateToken}/>)
+  }
   return (
     <div className="App">
-      <Sitebar />
-      <Auth updateToken={updateToken} />
+    <Sitebar clickLogout={clearToken}/>
+    {protectedViews()}
     </div>
   );
 }
