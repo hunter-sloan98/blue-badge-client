@@ -15,7 +15,7 @@ const RevCreate = (props) => {
             body: JSON.stringify({rev: {title: title, date: date, entry: entry}}),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': props.token // Do I need `Bearer` here??????
+                'Authorization': `Bearer ${props.token}`
             })
         }) .then((res) => res.json())
         .then((logRev) => {
@@ -23,7 +23,7 @@ const RevCreate = (props) => {
             setTitle('')
             setDate('')
             setEntry('')
-            props.fetchRev()
+          
         })
     }
 
