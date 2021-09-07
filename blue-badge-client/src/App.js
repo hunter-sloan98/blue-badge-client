@@ -3,7 +3,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import Auth from './components/auth/Auth';
 import Sitebar from './components/home/Navbar'
-import RevDisplay from './components/review/RevDisplay'
+import RevDisplay from './components/review/RevDisplay';
+
 
 function App() {
   const [sessionToken, setSessionToken] = useState('');
