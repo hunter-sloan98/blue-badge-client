@@ -32,7 +32,7 @@ console.log(reviews)
 return(
 
 		<div>
-			<h1>Test</h1>
+			
 			<Container>
 	<Row>
 		<Col md="3">

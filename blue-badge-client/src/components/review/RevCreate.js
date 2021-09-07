@@ -23,7 +23,7 @@ const RevCreate = (props) => {
             body: JSON.stringify({rev: {title: title, date: date, entry: entry}}),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${props.token}`
+                'Authorization': `${props.token}`
             })
         }) .then((res) => res.json())
         .then((logRev) => {

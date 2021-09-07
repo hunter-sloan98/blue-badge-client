@@ -19,7 +19,7 @@ const RevDisplay = (props) => {
 					method: 'GET',
 					headers: new Headers ({
 							'Content-Type': 'application/json',
-							'Authorization': `Bearer ${props.token}`
+							'Authorization': `${props.token}`
 					})
 			}).then((res) => res.json())
 			.then((logRev) => {
@@ -46,15 +46,14 @@ const RevDisplay = (props) => {
 
     return(
         <div>
-            <RevCreate fetchRev={fetchRev} token={props.token}/>
+            <RevCreate fetchAll={fetchAll} token={props.token}/>
 
             {/* Need to link to MY REVIEWS/ALL REVIEWS PAGE?? -- Still need to call editUpdateRev() and updateOn() */}
 
-            {revUpdateActive ? <RevEdit updateMyRev={updateMyRev} updateOff={updateOff}  token={props.token} fetchRev={fetchRev} />
+            {revUpdateActive ? <RevEdit updateMyRev={updateMyRev} updateOff={updateOff}  token={props.token} fetchAll={fetchAll} />
             : <></>}
-=======
+
 					<Container>
-						<p>Anything</p>
 			<Row>
 				<Col md="3">
             {
@@ -73,6 +72,8 @@ const RevDisplay = (props) => {
             <APISearch />
 						</Container>
         </div>
-};
+		)};
+
+	
 
 export default RevDisplay;
