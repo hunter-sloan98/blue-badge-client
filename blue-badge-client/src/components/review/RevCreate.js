@@ -1,12 +1,20 @@
-import React, { useState } from 'react';
-import {Button, Input, Form, FormGroup, Label} from 'reactstrap';
+import React, { useState } from "react";
+import {
+  Button,
+  Input,
+  Form,
+  FormGroup,
+  Label,
+  Popover,
+  PopoverBody,
+} from "reactstrap";
 
 const RevCreate = (props) => {
-
-    const [title, setTitle] = useState('');
-    const [date, setDate] = useState('');
-    const [entry, setEntry] = useState('');
-    // const [rating, setRating] = useState(''); DO WE NEED TO ADD RATING TO MODEL?
+  const [title, setTitle] = useState("");
+  const [date, setDate] = useState("");
+  const [entry, setEntry] = useState("");
+  // const [rating, setRating] = useState(''); DO WE NEED TO ADD RATING TO MODEL?
+  const [popoverOpen, setPopoverOpen] = useState(false);
     
     const handlePost = (e) => {
         e.preventDefault();
@@ -27,26 +35,59 @@ const RevCreate = (props) => {
         })
     }
 
-    return(
-        <div>
-            <h3>Post Review</h3>
-            <Form onSubmit={handlePost}>
-            <FormGroup>
-                <Label htmlFor="title">Title</Label>
-                <Input name="title" value={title} onChange={(e) => setTitle(e.target.value)}/>
-            </FormGroup>
-            <FormGroup>
-                <Label htmlFor="date">Date</Label>
-                <Input type="date" name="date" value={date} onChange={(e) => setDate(e.target.value)}/>
-            </FormGroup>
-            <FormGroup>
-                <Label htmlFor="entry">Entry</Label>
-                <Input type="textarea" name="entry" value={entry} placeholder="Write a Review..." style={{height: '200px'}}onChange={(e) => setEntry(e.target.value)}/>
-            </FormGroup>
-            <Button type="submit" style={{margin: '20px 0 10px 0'}}>POST</Button>
+    return (
+      <div className="revCreate">
+        <h3 className="revCreateTitle">Your Review</h3>
+        <Form onSubmit={handlePost}>
+          <FormGroup>
+            <Label htmlFor="title" className="revCreateLabel">
+              Title:
+            </Label>
+            <Input
+              name="title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label htmlFor="date" className="revCreateLabel">
+              Date:
+            </Label>
+            <Input
+              type="date"
+              name="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label htmlFor="entry" className="revCreateLabel">
+              Entry:
+            </Label>
+            <Input
+              type="textarea"
+              name="entry"
+              value={entry}
+              placeholder="Write a review..."
+              style={{ height: "200px" }}
+              onChange={(e) => setEntry(e.target.value)}
+            />
+          </FormGroup>
+          <Button
+            className="revCreateButton"
+            type="submit"
+            color="warning"
+            id="Popover"
+            size="lg"
+          >
+            Post Review
+          </Button>
+          <Popover className="popover" placement="right" isOpen={popoverOpen} trigger="focus" target="Popover" toggle={() => {setPopoverOpen(!popoverOpen)}}>
+              <PopoverBody>Review Posted!</PopoverBody>
+          </Popover>
         </Form>
-        </div>
-    )
+      </div>
+    );
 };
 
 export default RevCreate;

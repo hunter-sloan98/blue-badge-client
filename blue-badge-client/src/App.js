@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
@@ -10,7 +9,6 @@ import RevCreate from "./components/review/RevCreate";
 import RevIndex from "./components/review/RevIndex";
 import Navbar from "./components/home/Navbar";
 
-
 function App() {
   const [sessionToken, setSessionToken] = useState("");
 
@@ -21,6 +19,7 @@ function App() {
   }, []);
 
   //Updating out token
+
   const updateToken = (newToken) => {
     localStorage.setItem("token", newToken);
     setSessionToken(newToken);
@@ -54,13 +53,5 @@ function App() {
     </div>
   );
 }
-function app() {
-  <div className="App">
-    <p>This is our app</p>
-  </div>
-}
-
-
-
 
 export default App;

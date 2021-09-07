@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import RevCreate from './RevCreate';
+import RevEdit from './RevEdit';
 
 
 import APISearch from './APISearch';
@@ -9,6 +10,8 @@ import APISearch from './APISearch';
 const RevDisplay = (props) => {
 
     const [reviews, setReviews] = useState([])
+    const [revUpdateActive, setRevUpdateActive] = useState(false);
+    const [updateMyRev, setUpdateMyRev] = useState({}); 
 
 		
     const fetchAll = () => {
@@ -25,18 +28,31 @@ const RevDisplay = (props) => {
 			})
 	}   
 
-		
-		
-
-
-    
-
     useEffect(() => {
 				fetchAll()
     }, [])
 
+    const editUpdateRev = (rev) => {
+        setUpdateMyRev(rev)
+    }
+
+    const updateOn = () => {
+        setRevUpdateActive(true)
+    }
+
+    const updateOff = () => {
+        setRevUpdateActive(false)
+    }
+
     return(
         <div>
+            <RevCreate fetchRev={fetchRev} token={props.token}/>
+
+            {/* Need to link to MY REVIEWS/ALL REVIEWS PAGE?? -- Still need to call editUpdateRev() and updateOn() */}
+
+            {revUpdateActive ? <RevEdit updateMyRev={updateMyRev} updateOff={updateOff}  token={props.token} fetchRev={fetchRev} />
+            : <></>}
+=======
 					<Container>
 						<p>Anything</p>
 			<Row>
@@ -54,27 +70,9 @@ const RevDisplay = (props) => {
 						}
 						</Col>
 						</Row>
+            <APISearch />
 						</Container>
-
         </div>
-
-    // useEffect(() => {
-    //     fetchRev()
-    // }, [])
-
-    return(
-        <Container className='auth-container'>
-            <Row>
-            <Col md='6'>
-                <APISearch/>
-            </Col>
-            <Col md='6' className='login-col'>
-                <RevCreate token={props.token}/>
-            </Col>
-        </Row>
-        </Container>
-
-    )
 };
 
 export default RevDisplay;
