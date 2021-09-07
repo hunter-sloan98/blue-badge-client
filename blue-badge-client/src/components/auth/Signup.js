@@ -20,8 +20,6 @@ const Signup = (props) => {
       .then(data => {
         console.log(data)
         props.updateToken(data.sessionToken)
-      }).catch(alrt => {
-        alert("Error while attempting to sign in")
       })
   }
 

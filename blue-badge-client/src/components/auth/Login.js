@@ -36,7 +36,7 @@ const Login = (props) => {
                         value={password} type="password" placeholder='Password' minLength='5'/>
                 </FormGroup>
                 <br/>
-                <Button type="submit">Login</Button>
+                <Button type="submit" style={{color: "black"}}>Rejoin the Posse</Button>
             </Form>
         </div>
     )

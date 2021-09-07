@@ -3,39 +3,34 @@ import RevCreate from './RevCreate';
 import { Container, Row, Col } from 'reactstrap';
 
 const RevIndex = (props) => {
-console.log(props.token)
 	const [reviews, setReviews] = useState([])
 
 	const fetchRev = () => {
-		console.log('fetching?');
-			fetch('http://localhost:3500/rev/all', {
-					method: 'GET',
-					headers: new Headers ({
-							'Content-Type': 'application/json',
-							'Authorization': `Bearer ${props.token}`
-					})
-			}) .then((res) => res.json())
-			.then((logRev) => {
+		fetch('http://localhost:3500/rev/all', {
+			method: 'GET',
+			headers: new Headers ({
+			'Content-Type': 'application/json',
+			'Authorization': props.token
+			})
+			}).then((res) => res.json())
+				.then((logRev) => {
 					setReviews(logRev)
 					console.log(logRev)
 					console.log(reviews)
-			})
-			.catch(err => console.log(err))
+			}).catch(err => console.log(err))
 	}   
 
 	useEffect(() => {
 		fetchRev()
-		
-}, [])
-console.log(reviews)
+	}, [])
+
 
 return(
-
-		<div>
-			<h1>Test</h1>
+	<div>
+		<h1>My Reviews</h1>
 			<Container>
-	<Row>
-		<Col md="3">
+				<Row>
+					<Col md="3">
 				{
 					reviews.map(review => 
 						(
@@ -47,12 +42,10 @@ return(
 						)
 					)
 				}
-				</Col>
+					</Col>
 				</Row>
-				</Container>
-
-		</div>
-)
-};
+			</Container>
+	</div>
+)};
 
 export default RevIndex;
