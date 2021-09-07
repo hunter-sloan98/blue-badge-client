@@ -20,6 +20,8 @@ const Signup = (props) => {
       .then(data => {
         console.log(data)
         props.updateToken(data.sessionToken)
+      }).catch(alrt => {
+        alert("Error while attempting to sign in")
       })
   }
 
@@ -28,13 +30,15 @@ const Signup = (props) => {
       <h3>Sign up</h3>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
-          <Label htmlFor='email'>Email</Label>
-          <Input onChange={(e) => setEmail(e.target.value)} name='email' value={email} required />
+          {/* <Label htmlFor='email'>Email</Label> */}
+          <Input onChange={(e) => setEmail(e.target.value)} name='email' value={email} required type='email' placeholder='Email' pattern=".+@email\.com"/>
         </FormGroup>
+        <br/>
         <FormGroup>
-          <Label htmlFor='password'>Password</Label>
-          <Input onChange={(e) => setPassword(e.target.value)}  type='password' name='password' value={password} required />
+          {/* <Label htmlFor='password'>Password</Label> */}
+          <Input onChange={(e) => setPassword(e.target.value)}  type='password' name='password' value={password} required placeholder="Password" minLength="5"/>
         </FormGroup>
+        <br/>
         <Button type='submit'>Join the Bandits</Button>
       </Form>
     </div>
