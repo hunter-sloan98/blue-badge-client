@@ -26,13 +26,24 @@ function App() {
     localStorage.clear();
     setSessionToken('');
   }
+
+  const protectedViews = () => {
+    return(sessionToken === localStorage.getItem('token') ? <RevDisplay token={sessionToken}/> : <Auth updateToken={updateToken}/>)
+  }
   return (
     <div className="App">
-       <Sitebar />
-      <Auth updateToken={updateToken}/>
-      <RevDisplay />
+    <Sitebar clickLogout={clearToken}/>
+    {protectedViews()}
     </div>
   );
 }
+function app() {
+  <div className="App">
+    <p>This is our app</p>
+  </div>
+}
+
+
+
 
 export default App;
