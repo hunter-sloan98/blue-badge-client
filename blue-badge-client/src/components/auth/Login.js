@@ -23,17 +23,19 @@ const Login = (props) => {
     return (
         <div>
             <h3>Login</h3>
-            <Form>
+            <Form onSubmit={handleSubmit}>
                 <FormGroup>
-                    <Label htmlFor="email">Email</Label>
+                    {/* <Label htmlFor="email">Email</Label> */}
                     <Input onChange={(e) => setEmail(e.target.value)} name="email"
-                        value={email} />
+                        value={email} type='email' placeholder='Email' pattern=".+@email\.com"/>
                 </FormGroup>
+                <br/>
                 <FormGroup>
-                    <Label htmlFor="password">Password</Label>
+                    {/* <Label htmlFor="password">Password</Label> */}
                     <Input onChange={(e) => setPassword(e.target.value)} name="password"
-                        value={password} type="password" />
+                        value={password} type="password" placeholder='Password' minLength='5'/>
                 </FormGroup>
+                <br/>
                 <Button type="submit">Login</Button>
             </Form>
         </div>

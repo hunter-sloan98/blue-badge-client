@@ -15,27 +15,25 @@ const RevCreate = (props) => {
   const [entry, setEntry] = useState("");
   // const [rating, setRating] = useState(''); DO WE NEED TO ADD RATING TO MODEL?
   const [popoverOpen, setPopoverOpen] = useState(false);
-
-  const handlePost = (e) => {
-    e.preventDefault();
-    fetch("http://localhost:3500/rev/create", {
-      method: "POST",
-      body: JSON.stringify({ rev: { title: title, date: date, entry: entry } }),
-      headers: new Headers({
-        "Content-Type": "application/json",
-        Authorization: props.token, // Do I need `Bearer` here??????
-      }),
-    })
-      .then((res) => res.json())
-      .then((logRev) => {
-        console.log(logRev);
-        setTitle("");
-        setDate("");
-        setEntry("");
-        props.fetchRev();
-      });
-  };
-
+    
+    const handlePost = (e) => {
+        e.preventDefault();
+        fetch('http://localhost:3500/rev/create', {
+            method: 'POST',
+            body: JSON.stringify({rev: {title: title, date: date, entry: entry}}),
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${props.token}`
+            })
+        }) .then((res) => res.json())
+        .then((logRev) => {
+            console.log(logRev)
+            setTitle('')
+            setDate('')
+            setEntry('')
+          
+        })
+    }
 
     return (
       <div className="revCreate">

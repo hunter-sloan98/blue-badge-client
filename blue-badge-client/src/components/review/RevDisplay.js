@@ -1,6 +1,11 @@
 import React, {useState, useEffect} from 'react';
+import { Container, Row, Col } from 'reactstrap';
 import RevCreate from './RevCreate';
 import RevEdit from './RevEdit';
+
+
+import APISearch from './APISearch';
+
 
 const RevDisplay = (props) => {
 
@@ -8,22 +13,23 @@ const RevDisplay = (props) => {
     const [revUpdateActive, setRevUpdateActive] = useState(false);
     const [updateMyRev, setUpdateMyRev] = useState({}); 
 
-    const fetchRev = () => {
-        fetch('http://localhost:3500/rev', {
-            method: 'GET',
-            headers: new Headers ({
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${props.token}`
-            })
-        }) .then((res) => res.json())
-        .then((logRev) => {
-            setReviews(logRev)
-            console.log(logRev)
-        })
-    }   
-    
+		
+    const fetchAll = () => {
+			fetch('http://localhost:3500/rev', {
+					method: 'GET',
+					headers: new Headers ({
+							'Content-Type': 'application/json',
+							'Authorization': `Bearer ${props.token}`
+					})
+			}).then((res) => res.json())
+			.then((logRev) => {
+					 setReviews(logRev)
+					console.log(logRev)
+			})
+	}   
+
     useEffect(() => {
-        fetchRev()
+				fetchAll()
     }, [])
 
     const editUpdateRev = (rev) => {
@@ -46,8 +52,27 @@ const RevDisplay = (props) => {
 
             {revUpdateActive ? <RevEdit updateMyRev={updateMyRev} updateOff={updateOff}  token={props.token} fetchRev={fetchRev} />
             : <></>}
+=======
+					<Container>
+						<p>Anything</p>
+			<Row>
+				<Col md="3">
+            {
+							reviews.map(review => 
+								(
+									<>
+									<div>{review.title}</div>
+									<div>{review.date}</div>
+									<div>{review.entry}</div>
+									</>
+								)
+							)
+						}
+						</Col>
+						</Row>
+            <APISearch />
+						</Container>
         </div>
-    )
 };
 
 export default RevDisplay;
