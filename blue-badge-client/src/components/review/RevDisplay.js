@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
+import { Container, Row, Col } from 'reactstrap';
 import RevCreate from './RevCreate';
+import APISearch from './APISearch';
 
 const RevDisplay = (props) => {
 
@@ -19,14 +21,22 @@ const RevDisplay = (props) => {
         })
     }   
     
-    useEffect(() => {
-        fetchRev()
-    }, [])
+    // useEffect(() => {
+    //     fetchRev()
+    // }, [])
 
     return(
-        <div>
-            <RevCreate fetchRev={fetchRev} token={props.token}/>
-        </div>
+        <Container className='auth-container'>
+            <Row>
+            <Col md='6'>
+                <APISearch/>
+            </Col>
+            <Col md='6' className='login-col'>
+                <RevCreate token={props.token}/>
+            </Col>
+        </Row>
+        </Container>
+
     )
 };
 
