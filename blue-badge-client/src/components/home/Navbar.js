@@ -14,8 +14,7 @@ import { Link, Switch, Route} from "react-router-dom";
 import RevCreate from "../review/RevCreate";
 import RevDisplay from "../review/RevDisplay";
 import RevIndex  from "../review/RevIndex";
-
-
+import APISearch from "../review/APISearch";
 
 const Sitebar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,6 +47,7 @@ const Sitebar = (props) => {
       <Switch>
          <Route exact path="/" >
 				<RevCreate token={props.token}/>
+        <APISearch />
 				</Route> 
         <Route
           exact
