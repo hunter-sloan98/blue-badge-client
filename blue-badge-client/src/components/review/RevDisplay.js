@@ -9,11 +9,11 @@ const RevDisplay = (props) => {
   const [updateMyRev, setUpdateMyRev] = useState({});
 
   const fetchAll = () => {
-    fetch("http://localhost:3500/rev/mine", {
+    fetch("http://localhost:3500/rev/", {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
-        'Authorization': props.token,
+        'authorization': props.token
       }),
     })
       .then((res) => res.json())

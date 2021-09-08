@@ -12,7 +12,7 @@ const RevIndex = (props) => {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
-        "Authorization": props.token
+        "authorization": props.token
       }),
     })
       .then((res) => res.json())
