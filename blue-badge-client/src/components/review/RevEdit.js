@@ -18,10 +18,11 @@ const RevEdit = (props) => {
                 'Authorization': props.token
             })
         }) .then((res) => {
-            props.fetchRev();
+            props.fetchAll();
             props.updateOff();
         })
     }
+
     return(
         <Modal isOpen={true}>
         <ModalHeader>Edit Your Review</ModalHeader>

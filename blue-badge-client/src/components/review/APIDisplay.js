@@ -10,13 +10,13 @@ const displayFunction = (props) => {
   return(
     <div style={divStyles}>
       <h1>{props.title}</h1>
-      <img src={props.imageUrl} width='100%' alt='Game image displaying soon'/>
-      <p><strong>Metacritic Rating:</strong> {props.meta}/100</p>
-      <p><strong>Release Date:</strong> {props.release}</p>
-      <div><strong>Platforms:</strong> {props.plat}</div>
+      <img src={props.imageUrl} width='100%'/>
+      <p>{props.meta}</p>
+      <p>{props.release}</p>
+      <div>{props.plat}</div>
       <br/>
-      <p><strong>Developers:</strong> {props.dev}</p>
-      <div><strong>Desctiption:</strong> {props.des} </div>
+      <p>{props.dev}</p>
+      <div>{props.des} </div>
       
     </div>
   )

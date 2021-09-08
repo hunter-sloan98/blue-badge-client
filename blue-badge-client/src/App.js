@@ -8,6 +8,7 @@ import { Route, Switch } from "react-router-dom";
 import RevCreate from "./components/review/RevCreate";
 import RevIndex from "./components/review/RevIndex";
 import Navbar from "./components/home/Navbar";
+import Footer from "./components/home/Footer"
 
 function App() {
   const [sessionToken, setSessionToken] = useState("");
@@ -32,9 +33,6 @@ function App() {
     setSessionToken("");
   };
 
-
-
-
 	const protectedViews = () => {
     return sessionToken === localStorage.getItem("token") ? (
 			<>
@@ -50,6 +48,7 @@ function App() {
     <div className="App">
       {/* <Sitebar clickLogout={clearToken} token={sessionToken}/> */}
       {protectedViews()}
+      <Footer />
     </div>
   );
 }

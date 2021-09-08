@@ -20,12 +20,12 @@ const APISearch = () => {
     .then( data => {
       setTitle(data.name);
       setImageUrl(data.background_image);
-      setMeta(data.metacritic);
-      setRelease(data.released);
-      setPlat(data.platforms.map(platName => platName.platform.name));
-      setDev(data.developers[0].name);
-      setDes(data.description_raw);
-    })
+      setMeta("Metacritic Rating: " + data.metacritic + "/100");
+      setRelease("Release Date: " + data.released);
+      setPlat("Platforms: " + data.platforms.map(platName => platName.platform.name).join(', '));
+      setDev("Developers: " + data.developers[0].name);
+      setDes("Description: " + data.description_raw);
+    }).catch()
   }
   
   return(
@@ -34,7 +34,7 @@ const APISearch = () => {
       <Input name="search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search For Games"/>
       <br/>
       <Button onClick={handleSubmit}>Search Database</Button>
-      <APIDisplay title={title} imageUrl={imageUrl} meta={meta} release={release} plat={plat.join(', ')} dev={dev} des={des}/>
+      <APIDisplay title={title} imageUrl={imageUrl} meta={meta} release={release} plat={plat} dev={dev} des={des}/>
     </div>
   )
 }
