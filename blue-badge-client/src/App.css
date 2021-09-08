@@ -189,9 +189,9 @@ body {
 
 .reviewButton {
   margin: 5px;
-
+}
 /* API Search CSS */
-.searchBtn {
+.searchBtn{
   font-family: "Review Font";
   font-size: 20px;
 }
@@ -230,7 +230,7 @@ body {
   font-family: "Review Font 2";
   font-size: 50px;
   margin-top: 50px;
-  
+}
 .searchBtn:hover {
   font-size: 25px;
   border: 2px solid black;
