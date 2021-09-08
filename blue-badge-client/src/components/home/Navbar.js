@@ -39,7 +39,7 @@ const Sitebar = (props) => {
               <Link to='/all-reviews/'><NavLink >All Reviews</NavLink></Link>
             </NavItem>
             <NavItem>
-              <Button onClick={props.clickLogout} color="warning">Logout</Button>
+              <Button onClick={props.clickLogout} color="warning" className="logoutButton">Logout</Button>
             </NavItem>
           </Nav>
         </Collapse>
@@ -61,7 +61,6 @@ const Sitebar = (props) => {
           path="/all-reviews/"
         >
 					<RevIndex token={props.token}/>
-					{/* <RevDisplayAll /> */}
 				</Route>
       </Switch>
     </div>

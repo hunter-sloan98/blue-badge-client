@@ -12,7 +12,7 @@ const RevIndex = (props) => {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
-        Authorization: `Bearer ${props.token}`,
+        Authorization: `${props.token}`,
       }),
     })
       .then((res) => res.json())
@@ -30,7 +30,7 @@ const RevIndex = (props) => {
   console.log(reviews);
 
   return (
-    <Table dark>
+    <Table dark bordered className="table">
       <thead>
         <tr>
           <th>Title</th>

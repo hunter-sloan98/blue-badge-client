@@ -14,6 +14,11 @@
 }
 
 @font-face {
+  font-family: "Review Font 2";
+  src: url(./assets/ARCADE.TTF);
+}
+
+@font-face {
   font-family: "Body Font";
   src: url(./assets/Oxygen-Light.ttf);
 }
@@ -35,7 +40,7 @@
 body {
   background-color: rgb(177, 14, 14);
   background-image: url();
-  color: white;
+  color: black;
   padding: 40px;
   background-position: center;
   text-align: center;
@@ -53,6 +58,7 @@ body {
   font-family: "Main Title Font";
   font-size: 90px;
   border: 5px solid black;
+  color: black;
 }
   
 .signupMain, .loginMain {
@@ -79,7 +85,8 @@ body {
 
 .footer {
   margin-top: 1rem;
-  padding: 1rem;
+  color: white;
+  padding: 5px;
   background-color: #fcc404;
   position: fixed;
   bottom: 0;
@@ -100,4 +107,124 @@ body {
 .popover {
   margin-left: 5px;
   border: 1px solid black;
+}
+
+.mainTitle {
+  font-family: "Main Title Font";
+  margin-left: 10px;
+  font-size: 55px;
+  color: black;
+}
+
+.logoutButton {
+  font-family: "Review Font";
+  font-size: 20px;
+}
+
+.logoutButton:hover {
+  border: 2px solid black;
+  animation: shake 0.7s;
+}
+
+[class^="hvr-"] {
+	cursor: pointer;
+  text-decoration: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.hvr-sweep-to-right {
+  display: inline-block;
+  margin: .4em;
+	padding: 10px;
+  background: #fcc404;
+	color: black;
+  text-decoration: none;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  font-family: "Review Font";
+  font-size: 24px;
+}
+.hvr-sweep-to-right:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-sweep-to-right:hover, .hvr-sweep-to-right:focus, .hvr-sweep-to-right:active {
+  color: #fcc404;
+}
+.hvr-sweep-to-right:hover:before, .hvr-sweep-to-right:focus:before, .hvr-sweep-to-right:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+.reviewCard {
+  color: black;
+  margin: 15px;
+  border: 3px solid black;
+}
+
+.reviewButton {
+  margin: 5px;
+  font-family: "Review Font";
+  font-size: 20px;
+}
+
+.reviewButton:hover {
+  font-size: 25px;
+  border: 2px solid black;
+}
+
+.modalHeader {
+  font-family: "Review Font";
+}
+
+.modalTitle {
+  font-family: "Review Font 2";
+  font-size: 28px;
+  margin: 25px 0 3px 0;
+}
+
+.updateButton {
+  font-family: "Review Font";
+  font-size: 20px;
+  margin: 20px 0 0 0;
+}
+
+.updateButton:hover {
+  font-size: 25px;
+  border: 2px solid black;
+}
+
+.table {
+  margin: 30px 10px;
+}
+
+.noReviews {
+  font-family: "Review Font 2";
+  font-size: 50px;
+  margin-top: 50px;
 }

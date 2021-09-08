@@ -13,7 +13,6 @@ const RevCreate = (props) => {
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
   const [entry, setEntry] = useState("");
-  // const [rating, setRating] = useState(''); DO WE NEED TO ADD RATING TO MODEL?
   const [popoverOpen, setPopoverOpen] = useState(false);
     
     const handlePost = (e) => {
@@ -23,7 +22,7 @@ const RevCreate = (props) => {
             body: JSON.stringify({rev: {title: title, date: date, entry: entry}}),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${props.token}`
+                'Authorization': `${props.token}`
             })
         }) .then((res) => res.json())
         .then((logRev) => {
@@ -74,7 +73,7 @@ const RevCreate = (props) => {
             />
           </FormGroup>
           <Button
-            className="revCreateButton"
+            className="button hvr-sweep-to-right"
             type="submit"
             color="warning"
             id="Popover"

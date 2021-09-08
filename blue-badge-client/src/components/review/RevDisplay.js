@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Button } from "reactstrap";
+import { Row, Col, Button, Card, CardTitle, CardText } from "reactstrap";
 import RevCreate from "./RevCreate";
 import RevEdit from "./RevEdit";
 
@@ -13,7 +13,7 @@ const RevDisplay = (props) => {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
-        'Authorization': `Bearer ${props.token}`,
+        'Authorization': `${props.token}`,
       }),
     })
       .then((res) => res.json())
@@ -44,7 +44,7 @@ const RevDisplay = (props) => {
         method: 'DELETE',
         headers: new Headers({
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${props.token}`
+            'Authorization': `${props.token}`
         })
     })
     .then(() => fetchAll())
@@ -54,11 +54,13 @@ const RevDisplay = (props) => {
     return reviews.map((review, index) => {
       return (
         <div key={index}>
-          <div>{review.title}</div>
-          <div>{review.date}</div>
-          <div>{review.entry}</div>
-          <Button
-            onClick={() => {
+        <Row>
+          <Col sm="6">
+            <Card body className="reviewCard">
+              <CardTitle tag="h3">{review.title}</CardTitle>
+              <CardText>{review.date}</CardText>
+              <CardText>{review.entry}</CardText>
+              <Button onClick={() => {
               editUpdateRev(review);
               updateOn();
             }}
@@ -67,16 +69,16 @@ const RevDisplay = (props) => {
             updateOn={updateOn}
             fetchAll={fetchAll}
             token={props.token}
-          >
-            Edit
-          </Button>
-          <Button
-            onClick={() => {
+            className="reviewButton"
+            color="warning">Edit</Button>
+            <Button onClick={() => {
               deleteRev(review);
             }}
-          >
-            Delete
-          </Button>
+            className="reviewButton"
+            color="warning">Delete</Button>
+            </Card>
+          </Col>
+        </Row>
         </div>
       );
     });
@@ -86,7 +88,7 @@ const RevDisplay = (props) => {
     <div>
       {/* <RevCreate fetchAll={fetchAll} token={props.token} /> */}
 
-      {reviews.length > 0 ? revMapper() : "No reviews yet."}
+      {reviews.length > 0 ? revMapper() : <p className="noReviews">You have not posted any reviews yet.</p>}
 
       {revUpdateActive ? (
         <RevEdit
@@ -98,20 +100,6 @@ const RevDisplay = (props) => {
       ) : (
         <></>
       )}
-      <Container>
-        <p>Anything</p>
-        <Row>
-          <Col md="3">
-            {/* {reviews.map((review) => (
-              <>
-                <div>{review.title}</div>
-                <div>{review.date}</div>
-                <div>{review.entry}</div>
-              </>
-            ))} */}
-          </Col>
-        </Row>
-      </Container>
     </div>
   );
 };
