@@ -59,14 +59,12 @@ const APISearch = () => {
   const clearRender = () => {
     window.location.reload(false);
   }
-  
-    
-
 
   return(
     <div className="api-search-main">
       <br/>
-      <h2 style={{"fontFamily": "Review Font", "color": "#FFC107"}}>Mega Games Database</h2>
+
+       <h2 style={{"fontFamily": "Review Font Two", "color": "#FFC107", fontSize: "45px", textDecoration: "underline"}}>Mega Games Database</h2>
       <div>
       <Input style={inputStyle} name="search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search For Games"/>
       <br/>
@@ -74,6 +72,13 @@ const APISearch = () => {
       <Button className="clearBtn"  onClick={clearRender} style={{"backgroundColor": "#FFC107", "color": "black"}}>Clear</Button>
         
       </div>
+
+    
+      <Input style={{"fontFamily": "Review Font", "height":"93px", "fontSize":"40px"}} name="search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search For Games"/>
+      <br/>
+      <Button className="searchBtn" onClick={handleSubmit} style={{"color": "black"}} color="warning">Search Database</Button>
+      <Button className="clearBtn" onClick={clearRender} style={{"color": "black"}} color="warning">Clear</Button>
+
       {det == '' ? <APIDisplay title={title} imageUrl={imageUrl} meta={meta} release={release} plat={plat} dev={dev} des={des} /> :
       <APIDisplay det={det} />}
       </div>

@@ -4,17 +4,12 @@
 }
 
 @font-face {
- font-family: "Review Title Font";
- src: url(./assets/iomanoid.ttf);
-}
-
-@font-face {
  font-family: "Review Font";
  src: url(./assets/astron\ boy.ttf);
 }
 
 @font-face {
-  font-family: "Review Font 2";
+  font-family: "Review Font Two";
   src: url(./assets/ARCADE.TTF);
 }
 
@@ -136,7 +131,7 @@ body {
 
 .hvr-sweep-to-right {
   display: inline-block;
-  margin: .4em;
+  margin: 32px;
 	padding: 10px;
   background: #fcc404;
 	color: black;
@@ -190,10 +185,17 @@ body {
 .reviewButton {
   margin: 5px;
 }
+
 /* API Search CSS */
 .searchBtn{
   font-family: "Review Font";
   font-size: 20px;
+  margin: 10px;
+}
+
+.reviewButton {
+  font-family: "Review Font";
+  font-size: 20px; 
 }
 
 .reviewButton:hover {
@@ -206,7 +208,7 @@ body {
 }
 
 .modalTitle {
-  font-family: "Review Font 2";
+  font-family: "Review Font Two";
   font-size: 28px;
   margin: 25px 0 3px 0;
 }
@@ -227,10 +229,11 @@ body {
 }
 
 .noReviews {
-  font-family: "Review Font 2";
+  font-family: "Review Font Two";
   font-size: 50px;
   margin-top: 50px;
 }
+
 .searchBtn:hover {
   font-size: 25px;
   border: 2px solid black;
@@ -246,4 +249,17 @@ body {
   font-size: 25px;
   border: 2px solid black;
   animation: shake 0.7s;
+}
+
+.revCreateTitle {
+  color: #fcc404;
+  font-family: "Review Font Two";
+  font-size: 45px;
+  text-decoration: underline;
+}
+
+.revCreateLabel {
+  margin: 15px 0 5px 0;
+  font-size: 40px;
+  font-family: "Review Font";
 }
