@@ -7,7 +7,6 @@ const RevEdit = (props) => {
     const [editDate, setEditDate] = useState(props.updateMyRev.date);
     const [editEntry, setEditEntry] = useState(props.updateMyRev.entry);
 
-
     const revUpdate = (e, rev) => {
         e.preventDefault();
         fetch(`http://localhost:3500/rev/update/${props.updateMyRev.id}`, {
@@ -15,7 +14,7 @@ const RevEdit = (props) => {
             body: JSON.stringify({rev: {title: editTitle, date: editDate, entry: editEntry}}),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': props.token
+                'Authorization': `Bearer ${props.token}`
             })
         }) .then((res) => {
             props.fetchAll();

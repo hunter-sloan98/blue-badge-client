@@ -13,7 +13,7 @@ const RevDisplay = (props) => {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
-        'Authorization': props.token,
+        'Authorization': `Bearer ${props.token}`,
       }),
     })
       .then((res) => res.json())
@@ -44,7 +44,7 @@ const RevDisplay = (props) => {
         method: 'DELETE',
         headers: new Headers({
             'Content-Type': 'application/json',
-            'Authorization': props.token
+            'Authorization': `Bearer ${props.token}`
         })
     })
     .then(() => fetchAll())
@@ -86,7 +86,7 @@ const RevDisplay = (props) => {
     <div>
       {/* <RevCreate fetchAll={fetchAll} token={props.token} /> */}
 
-      {revMapper()}
+      {reviews.length > 0 ? revMapper() : "No reviews yet."}
 
       {revUpdateActive ? (
         <RevEdit

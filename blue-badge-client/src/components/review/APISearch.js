@@ -12,7 +12,6 @@ const APISearch = () => {
   const [des, setDes] = useState('');
   
   
-  
   const handleSubmit = () => {
     const key = "7be848dcee5a4cd490fdd79ddd68ea9d";
     fetch(`https://api.rawg.io/api/games/${search.replace(/\s/g , "-")}?key=${key}`)

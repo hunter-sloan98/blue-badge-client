@@ -1,43 +1,86 @@
+@font-face {
+ font-family: "Main Title Font";
+ src: url(./assets/crackman.ttf);
+}
+
+@font-face {
+ font-family: "Review Title Font";
+ src: url(./assets/iomanoid.ttf);
+}
+
+@font-face {
+ font-family: "Review Font";
+ src: url(./assets/astron\ boy.ttf);
+}
+
+@font-face {
+  font-family: "Body Font";
+  src: url(./assets/Oxygen-Light.ttf);
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
 body {
   background-color: rgb(177, 14, 14);
   background-image: url();
-    color: white;
-    padding: 40px;
-    background-position: center;
-    text-align: center;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+  color: white;
+  padding: 40px;
+  background-position: center;
+  text-align: center;
+  font-family:"Body Font"
 }
 
- .container {
-    min-width:100%;
-    color: Black;
-   padding-top: 60px;
-   padding-bottom: 100px;
+.container {
+  min-width:100%;
+  color: Black;
+  padding-top: 60px;
+  padding-bottom: 100px;
  }
 
- @font-face {
-  font-family: "Main Title Font";
-  src: url(./assets/crackman.ttf);
-}
-
-@font-face {
-  font-family: "Review Title Font";
-  src: url(./assets/iomanoid.ttf);
-}
-
-@font-face {
-  font-family: "Review Font";
-  src: url(./assets/astron\ boy.ttf);
-}
-
 .display-1 {
-  font-family: "Main Title Font"
+  font-family: "Main Title Font";
+  font-size: 90px;
+  border: 5px solid black;
+}
+  
+.signupMain, .loginMain {
+  font-family: "Review Font";
+  text-decoration: underline;
+  font-size: 40px;
+}
+
+.subtitleMain {
+  font-size: 38px;
+  font-weight: 800;
+}
+
+.authButton {
+  font-family: "Review Font";
+  font-size: 20px;
+}
+
+.authButton:hover {
+  font-size: 25px;
+  border: 2px solid black;
+  animation: shake 0.7s;
 }
 
 .footer {
   margin-top: 1rem;
   padding: 1rem;
-  background-color: rgb(235, 195, 64);
+  background-color: #fcc404;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -48,8 +91,13 @@ body {
 .footerBackground {
   background-image: url(./assets/BooleanBandits.png);
   background-repeat: no-repeat;
-  background-size: 53px 27px;
-  background-color: rgb(235, 195, 64);
+  background-size: 62px 30px;
+  background-color: #fcc404;
   background-blend-mode: multiply;
   background-position: center;
+}
+
+.popover {
+  margin-left: 5px;
+  border: 1px solid black;
 }
