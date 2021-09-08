@@ -3,7 +3,7 @@ import APISearch from "./APISearch";
 const divStyles={
   textAlign: 'left',
   color: '#FFC107',
-  fontFamily: "Couier New",
+  fontFamily: "Couier New !important",
   fontSixe: "18px"
 }
 

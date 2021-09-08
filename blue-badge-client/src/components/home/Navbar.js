@@ -20,9 +20,6 @@ import RevIndex from "../review/RevIndex";
 import APISearch from "../review/APISearch";
 import APIDisplay from "../review/APIDisplay"
 
-
-
-
 const Sitebar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -30,7 +27,7 @@ const Sitebar = (props) => {
 	const toggle = () => setIsOpen(!isOpen);
 	return (
 		<div>
-		<Navbar color="" light expand="md">
+		<Navbar color="" light expand="md" style={{"border":"5px solid black"}}>
         <NavbarBrand className="nav-logo"><img src={logo} width="200" height="100"/></NavbarBrand>
         <h1 className="mainTitle">Boolean Bandit Reviews</h1>
         <NavbarToggler onClick={toggle} />
