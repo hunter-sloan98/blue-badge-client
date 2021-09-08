@@ -5,7 +5,6 @@ const inputStyle={
   fontFamily: "Review Font",
   height: "100px", 
   fontSize: "50px",
-  width: "150px"
 }
 
 
@@ -63,25 +62,15 @@ const APISearch = () => {
   return(
     <div className="api-search-main">
       <br/>
-
-       <h2 style={{"fontFamily": "Review Font Two", "color": "#FFC107", fontSize: "45px", textDecoration: "underline"}}>Mega Games Database</h2>
-      <div>
+      <h2 style={{"fontFamily": "Review Font Two", "color": "#FFC107", fontSize: "45px", textDecoration: "underline"}}>Mega Games Database</h2>
       <Input style={inputStyle} name="search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search For Games"/>
       <br/>
-      <Button className="searchBtn" onClick={searchAndClear} style={{"backgroundColor": "#FFC107", "color": "black"}}>Search Database</Button>
-      <Button className="clearBtn"  onClick={clearRender} style={{"backgroundColor": "#FFC107", "color": "black"}}>Clear</Button>
-        
-      </div>
-
-    
-      <Input style={{"fontFamily": "Review Font", "height":"93px", "fontSize":"40px"}} name="search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search For Games"/>
-      <br/>
-      <Button className="searchBtn" onClick={handleSubmit} style={{"color": "black"}} color="warning">Search Database</Button>
+      <Button className="searchBtn" onClick={searchAndClear} style={{"color": "black"}} color="warning">Search Database</Button>
       <Button className="clearBtn" onClick={clearRender} style={{"color": "black"}} color="warning">Clear</Button>
-
       {det == '' ? <APIDisplay title={title} imageUrl={imageUrl} meta={meta} release={release} plat={plat} dev={dev} des={des} /> :
       <APIDisplay det={det} />}
       </div>
-  )
+)
 }
+  
 export default APISearch;
