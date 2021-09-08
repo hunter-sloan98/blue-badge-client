@@ -9,12 +9,11 @@ const RevDisplay = (props) => {
   const [updateMyRev, setUpdateMyRev] = useState({});
 
   const fetchAll = () => {
-		console.log('fetch/mine')
     fetch("http://localhost:3500/rev/mine", {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
-        'Authorization': `Bearer ${props.token}`,
+        'Authorization': props.token,
       }),
     })
       .then((res) => res.json())
@@ -45,7 +44,7 @@ const RevDisplay = (props) => {
         method: 'DELETE',
         headers: new Headers({
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${props.token}`
+            'Authorization': props.token
         })
     })
     .then(() => fetchAll())
@@ -87,7 +86,7 @@ const RevDisplay = (props) => {
     <div>
       {/* <RevCreate fetchAll={fetchAll} token={props.token} /> */}
 
-      {reviews.length > 0 ? revMapper() : "No reviews yet"}
+      {reviews.length > 0 ? revMapper() : "No reviews yet."}
 
       {revUpdateActive ? (
         <RevEdit
@@ -100,7 +99,6 @@ const RevDisplay = (props) => {
         <></>
       )}
       <Container>
-        
         <Row>
           <Col md="3">
             {/* {reviews.map((review) => (

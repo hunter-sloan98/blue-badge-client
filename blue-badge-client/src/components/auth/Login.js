@@ -22,7 +22,7 @@ const Login = (props) => {
 
     return (
         <div>
-            <h3>Login</h3>
+            <h3 className="loginMain">Login</h3>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     {/* <Label htmlFor="email">Email</Label> */}
@@ -36,7 +36,7 @@ const Login = (props) => {
                         value={password} type="password" placeholder='Password' minLength='5'/>
                 </FormGroup>
                 <br/>
-                <Button type="submit">Login</Button>
+                <Button className="authButton" type="submit" color="warning">Login</Button>
             </Form>
         </div>
     )

@@ -30,30 +30,26 @@ const RevIndex = (props) => {
   console.log(reviews);
 
   return (
-   
-       <Table dark>
+    <Table dark>
       <thead>
         <tr>
-         
           <th>Title</th>
           <th>Date</th>
           <th>Review</th>
         </tr>
       </thead>
-			<tbody>
+      <tbody>
             {reviews.map((review) => (
               <>
-							<tr>
-							
+              <tr>
                 <td>{review.title}</td>
-								<td>{review.date}</td>
-								<td>{review.entry}</td>
-								</tr>
-						</>
+                <td>{review.date}</td>
+                <td>{review.entry}</td>
+                </tr>
+            </>
             ))}
            </tbody>
     </Table>
-    
   );
 };
 
