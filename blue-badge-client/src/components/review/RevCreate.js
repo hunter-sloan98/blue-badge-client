@@ -5,7 +5,6 @@ const RevCreate = (props) => {
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
   const [entry, setEntry] = useState("");
-  // const [rating, setRating] = useState(''); DO WE NEED TO ADD RATING TO MODEL?
   const [popoverOpen, setPopoverOpen] = useState(false);
     
     const handlePost = (e) => {
@@ -65,8 +64,8 @@ const RevCreate = (props) => {
             />
           </FormGroup>
           <Button
+            className="button hvr-sweep-to-right"
             onClick={handlePost}
-            className="revCreateButton"
             type="submit"
             color="warning"
             id="Popover"

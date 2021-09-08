@@ -30,7 +30,7 @@ const RevIndex = (props) => {
   console.log(reviews);
 
   return (
-    <Table dark>
+    <Table dark bordered className="table">
       <thead>
         <tr>
           <th>Title</th>

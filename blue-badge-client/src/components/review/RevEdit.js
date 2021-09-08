@@ -24,22 +24,22 @@ const RevEdit = (props) => {
 
     return(
         <Modal isOpen={true}>
-        <ModalHeader>Edit Your Review</ModalHeader>
+        <ModalHeader className="modalHeader">Edit Your Review</ModalHeader>
         <ModalBody>
             <Form onSubmit={revUpdate}>
                 <FormGroup>
-                    <Label htmlFor="title">Edit Title:</Label>
+                    <Label htmlFor="title" className="modalTitle">Edit Title:</Label>
                     <Input name="title" value={editTitle} onChange={(e) => setEditTitle(e.target.value)}/>
                 </FormGroup>
                 <FormGroup>
-                    <Label htmlFor="date">Edit Date:</Label>
+                    <Label htmlFor="date" className="modalTitle">Edit Date:</Label>
                     <Input name="date" value={editDate} onChange={(e) => setEditDate(e.target.value)}/>
                 </FormGroup>
                 <FormGroup>
-                    <Label htmlFor="entry">Edit Entry:</Label>
+                    <Label htmlFor="entry" className="modalTitle">Edit Review:</Label>
                     <Input type="textarea" name="entry" value={editEntry} onChange={(e) => setEditEntry(e.target.value)}/>
                 </FormGroup>
-        <Button type="submit" style={{margin: '20px 0 10px 0'}}>Update Review</Button>
+        <Button type="submit" className="updateButton" color="warning">Update Review</Button>
     </Form>
         </ModalBody>
     </Modal>

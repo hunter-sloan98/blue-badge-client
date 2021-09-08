@@ -46,7 +46,7 @@ const Sitebar = (props) => {
               <Link to='/all-reviews/'><NavLink >All Reviews</NavLink></Link>
             </NavItem>
             <NavItem>
-              <Button onClick={props.clickLogout} color="warning">Logout</Button>
+              <Button onClick={props.clickLogout} color="warning" className="logoutButton">Logout</Button>
             </NavItem>
           </Nav>
         </Collapse>
@@ -67,7 +67,6 @@ const Sitebar = (props) => {
             </Row>
           </Container>
         </Route>
-
               <Route exact path="/reviews/">
                 {/* render={props => renderComponent(RevCreate, { ...props, token: sessionToken })} */}
                 <RevDisplay token={props.token} />
