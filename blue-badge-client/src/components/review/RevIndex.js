@@ -12,7 +12,7 @@ const RevIndex = (props) => {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
-        Authorization: `Bearer ${props.token}`,
+        "Authorization": props.token
       }),
     })
       .then((res) => res.json())
@@ -48,7 +48,7 @@ const RevIndex = (props) => {
                 </tr>
             </>
             ))}
-           </tbody>
+      </tbody>
     </Table>
   );
 };

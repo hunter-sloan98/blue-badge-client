@@ -13,7 +13,7 @@ const RevDisplay = (props) => {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
-        'Authorization': `Bearer ${props.token}`,
+        'Authorization': props.token,
       }),
     })
       .then((res) => res.json())
@@ -21,7 +21,7 @@ const RevDisplay = (props) => {
         setReviews(logRev);
         console.log(logRev);
       });
-  };
+  }; 
 
   useEffect(() => {
     fetchAll();
@@ -44,11 +44,11 @@ const RevDisplay = (props) => {
         method: 'DELETE',
         headers: new Headers({
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${props.token}`
+            'Authorization': props.token
         })
     })
-    .then(() => fetchAll())
-}
+      .then(() => fetchAll())
+  }
 
   const revMapper = () => {
     return reviews.map((review, index) => {
@@ -98,20 +98,6 @@ const RevDisplay = (props) => {
       ) : (
         <></>
       )}
-      <Container>
-        <p>Anything</p>
-        <Row>
-          <Col md="3">
-            {/* {reviews.map((review) => (
-              <>
-                <div>{review.title}</div>
-                <div>{review.date}</div>
-                <div>{review.entry}</div>
-              </>
-            ))} */}
-          </Col>
-        </Row>
-      </Container>
     </div>
   );
 };

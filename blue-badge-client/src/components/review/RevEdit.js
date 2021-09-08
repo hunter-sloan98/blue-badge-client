@@ -14,7 +14,7 @@ const RevEdit = (props) => {
             body: JSON.stringify({rev: {title: editTitle, date: editDate, entry: editEntry}}),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${props.token}`
+                'Authorization': props.token
             })
         }) .then((res) => {
             props.fetchAll();
