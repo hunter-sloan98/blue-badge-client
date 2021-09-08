@@ -52,7 +52,7 @@ const RevCreate = (props) => {
           </FormGroup>
           <FormGroup>
             <Label htmlFor="entry" className="revCreateLabel">
-              Entry:
+              Review:
             </Label>
             <Input
               type="textarea"

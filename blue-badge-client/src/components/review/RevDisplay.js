@@ -54,7 +54,8 @@ const RevDisplay = (props) => {
     return reviews.map((review, index) => {
       return (
         <div key={index}>
-        <Row style={{"display": "flex", "justifyContent": "center"}}>
+        <Row style={{"display":"flex", "justifyContent": "center"}}>
+
           <Col sm="6">
             <Card body className="reviewCard">
               <CardTitle tag="h3">{review.title}</CardTitle>
