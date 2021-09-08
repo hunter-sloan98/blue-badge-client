@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import RevCreate from "./RevCreate";
-import { Container, Row, Col } from "reactstrap";
+import { Table } from "reactstrap";
 
 const RevIndex = (props) => {
   console.log(props.token);
@@ -30,22 +30,26 @@ const RevIndex = (props) => {
   console.log(reviews);
 
   return (
-    <div>
-      <h1>All Reviews</h1>
-      <Container>
-        <Row>
-          <Col md="3">
+    <Table dark>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Date</th>
+          <th>Review</th>
+        </tr>
+      </thead>
+      <tbody>
             {reviews.map((review) => (
               <>
-                <div>{review.title}</div>
-                <div>{review.date}</div>
-                <div>{review.entry}</div>
-              </>
+              <tr>
+                <td>{review.title}</td>
+                <td>{review.date}</td>
+                <td>{review.entry}</td>
+                </tr>
+            </>
             ))}
-          </Col>
-        </Row>
-      </Container>
-    </div>
+      </tbody>
+    </Table>
   );
 };
 

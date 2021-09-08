@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
-import {Button, Input, Label} from 'reactstrap';
+import React, {useState, useEffect, createElement} from 'react';
+import {Button, Input, Form, FormGroup} from 'reactstrap';
 import APIDisplay from "./APIDisplay"
-const divStyles={fontFamily: "impact"}
+
 
 const APISearch = () => {
   const [search, setSearch] = useState('');
@@ -12,12 +12,24 @@ const APISearch = () => {
   const [plat, setPlat] = useState([]);
   const [dev, setDev] = useState('');
   const [des, setDes] = useState('');
+  const [det, setDet] = useState([]);
   
-  const handleSubmit = () => {
+  
+  const handleSubmit = (e) => {
     const key = "7be848dcee5a4cd490fdd79ddd68ea9d";
+    e.preventDefault();
     fetch(`https://api.rawg.io/api/games/${search.replace(/\s/g , "-")}?key=${key}`)
-    .then(res => res.json())
+    .then(res => {
+      if(res.ok){
+        return res.json()
+      } else if(res.staus === 404){
+        return Promise.reject('error 404')
+      } else {
+        return Promise.reject("Error:" + res.status)
+      }
+    })
     .then( data => {
+      console.log(data)
       setTitle(data.name);
       setImageUrl(data.background_image);
       setMeta("Metacritic Rating: " + data.metacritic + "/100");
@@ -25,19 +37,31 @@ const APISearch = () => {
       setPlat("Platforms: " + data.platforms.map(platName => platName.platform.name).join(', '));
       setDev("Developers: " + data.developers[0].name);
       setDes("Description: " + data.description_raw);
-    }).catch()
+    }).catch(err => {
+      setDet("Not Found!! " + err)
+      console.log(det)
+    })
+    setDet('')
   }
   
+    const clearRender = () => {
+    window.location.reload(false);
+  }
+  
+    
+
+
   return(
     <div className="api-search-main">
-      <h2>Mega Games Database</h2>
-      <Input name="search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search For Games"/>
       <br/>
-      <Button onClick={handleSubmit}>Search Database</Button>
-      <APIDisplay title={title} imageUrl={imageUrl} meta={meta} release={release} plat={plat} dev={dev} des={des}/>
-    </div>
+      <h2 style={{"fontFamily": "Review Font", "color": "#FFC107"}}>Mega Games Database</h2>
+      <Input style={{"fontFamily": "Review Font"}} name="search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search For Games"/>
+      <br/>
+      <Button className="searchBtn" onClick={handleSubmit} style={{"backgroundColor": "#FFC107", "color": "black"}}>Search Database</Button>
+      <Button className="clearBtn" onClick={clearRender} style={{"backgroundColor": "#FFC107", "color": "black"}}>Clear</Button>
+      {det == '' ? <APIDisplay title={title} imageUrl={imageUrl} meta={meta} release={release} plat={plat} dev={dev} des={des} /> :
+      <APIDisplay det={det}/>}
+      </div>
   )
 }
-
-
 export default APISearch;

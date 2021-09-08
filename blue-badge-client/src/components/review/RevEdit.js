@@ -7,7 +7,6 @@ const RevEdit = (props) => {
     const [editDate, setEditDate] = useState(props.updateMyRev.date);
     const [editEntry, setEditEntry] = useState(props.updateMyRev.entry);
 
-
     const revUpdate = (e, rev) => {
         e.preventDefault();
         fetch(`http://localhost:3500/rev/update/${props.updateMyRev.id}`, {

@@ -13,7 +13,7 @@ const RevDisplay = (props) => {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
-        'Authorization': `Bearer ${props.token}`,
+        'Authorization': props.token,
       }),
     })
       .then((res) => res.json())
@@ -41,11 +41,11 @@ const RevDisplay = (props) => {
 
   const deleteRev = (review) => {
     fetch(`http://localhost:3500/rev/delete/${review.id}`, {
-      method: 'DELETE',
-      headers: new Headers({
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${props.token}`
-      })
+        method: 'DELETE',
+        headers: new Headers({
+            'Content-Type': 'application/json',
+            'Authorization': props.token
+        })
     })
       .then(() => fetchAll())
   }
@@ -86,7 +86,7 @@ const RevDisplay = (props) => {
     <div>
       {/* <RevCreate fetchAll={fetchAll} token={props.token} /> */}
 
-      {reviews.length > 0 ? revMapper() : "No Reviews Yet!"}
+      {reviews.length > 0 ? revMapper() : "No reviews yet."}
 
       {revUpdateActive ? (
         <RevEdit
@@ -98,20 +98,6 @@ const RevDisplay = (props) => {
       ) : (
         <></>
       )}
-      {/* <Container>
-        <p>Anything</p>
-        <Row>
-          <Col md="3">
-            {reviews.map((review) => (
-              <>
-                <div>{review.title}</div>
-                <div>{review.date}</div>
-                <div>{review.entry}</div>
-              </>
-            ))}
-          </Col>
-        </Row>
-      </Container> */}
     </div>
   );
 };
