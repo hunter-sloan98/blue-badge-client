@@ -25,10 +25,10 @@ const Sitebar = (props) => {
 		<div>
 		<Navbar color="light" light expand="md">
         <NavbarBrand className="nav-logo"><img src={logo} width="200" height="100"/></NavbarBrand>
-        <h1 className="mainTitle">Boolean Bandits Reviews</h1>
+        <h1 className="mainTitle">Boolean Bandit Reviews</h1>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="ms-auto" navbar>
+          <Nav className="ms-auto" navbar style={{marginRight: "18px"}}>
             <NavItem>
               <Link to='/'><NavLink>Home</NavLink></Link>
             </NavItem>
@@ -39,7 +39,7 @@ const Sitebar = (props) => {
               <Link to='/all-reviews/'><NavLink >All Reviews</NavLink></Link>
             </NavItem>
             <NavItem>
-              <Button onClick={props.clickLogout}>Logout</Button>
+              <Button onClick={props.clickLogout} color="warning">Logout</Button>
             </NavItem>
           </Nav>
         </Collapse>
