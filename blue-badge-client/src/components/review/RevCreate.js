@@ -1,40 +1,30 @@
 import React, { useState } from "react";
-import {
-  Button,
-  Input,
-  Form,
-  FormGroup,
-  Label,
-  Popover,
-  PopoverBody,
-} from "reactstrap";
+import {Button, Input, Form, FormGroup, Label, Popover, PopoverBody,} from "reactstrap";
 
 const RevCreate = (props) => {
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
   const [entry, setEntry] = useState("");
-  // const [rating, setRating] = useState(''); DO WE NEED TO ADD RATING TO MODEL?
   const [popoverOpen, setPopoverOpen] = useState(false);
     
     const handlePost = (e) => {
         e.preventDefault();
         fetch('http://localhost:3500/rev/create', {
             method: 'POST',
-            body: JSON.stringify({rev: {title: title, date: date, entry: entry}}),
+            body: JSON.stringify({rev:{title: title, date: date, entry: entry}}),
             headers: new Headers({
                 'Content-Type': 'application/json',
                 'Authorization': props.token
             })
-        }) .then((res) => res.json())
-        .then((logRev) => {
+        }).then((res) => res.json())
+          .then((logRev) => {
             console.log(logRev)
             setTitle('')
             setDate('')
             setEntry('')
           
         })
-    }
-
+      }
     return (
       <div className="revCreate">
         <h3 className="revCreateTitle">Your Review</h3>
@@ -74,7 +64,8 @@ const RevCreate = (props) => {
             />
           </FormGroup>
           <Button
-            className="revCreateButton"
+            className="button hvr-sweep-to-right"
+            onClick={handlePost}
             type="submit"
             color="warning"
             id="Popover"
