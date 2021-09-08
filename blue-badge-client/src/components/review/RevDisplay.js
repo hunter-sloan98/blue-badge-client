@@ -9,7 +9,7 @@ const RevDisplay = (props) => {
   const [updateMyRev, setUpdateMyRev] = useState({});
 
   const fetchAll = () => {
-    fetch("http://localhost:3500/rev", {
+    fetch("http://localhost:3500/rev/mine", {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
@@ -55,6 +55,7 @@ const RevDisplay = (props) => {
       return (
         <div key={index}>
         <Row style={{"display":"flex", "justifyContent": "center"}}>
+
           <Col sm="6">
             <Card body className="reviewCard">
               <CardTitle tag="h3">{review.title}</CardTitle>
