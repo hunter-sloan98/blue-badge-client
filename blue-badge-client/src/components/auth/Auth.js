@@ -5,6 +5,12 @@ import Login from './Login';
 
 const Auth = (props) => {
   return(
+    <>
+    <Container>
+    <Row>
+      <p className="display-1">Boolean Bandit Reviews</p>
+    </Row>
+  </Container>
     <Container className='auth-container'>
       <Row>
         <Col md='6'>
@@ -15,6 +21,7 @@ const Auth = (props) => {
         </Col>
       </Row>
     </Container>
+    </>
   )
 };
 
